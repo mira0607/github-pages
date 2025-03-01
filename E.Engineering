@@ -1,0 +1,54 @@
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Image } from "next/image";
+
+export default function HomePage() {
+  const [search, setSearch] = useState("");
+
+  return (
+    <div className="min-h-screen bg-gray-100 p-6">
+      <header className="text-center text-4xl font-bold mb-6 text-blue-700">e.engineering - منصة المقاولات الإلكترونية</header>
+      
+      <div className="flex justify-center mb-6">
+        <Input
+          className="w-1/2 p-3 border rounded-lg"
+          placeholder="ابحث عن مهندس حسب التخصص..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <Button className="ml-2 px-4 py-2 bg-blue-700 text-white rounded-lg">بحث</Button>
+      </div>
+      
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <Card className="shadow-lg rounded-lg">
+          <CardContent className="p-4">
+            <Image src="/engineer-register.jpg" alt="تسجيل المهندسين" width={300} height={200} className="rounded-lg mb-4" />
+            <h2 className="text-xl font-semibold">تسجيل المهندسين</h2>
+            <p className="text-gray-600">انضم إلى شبكتنا وابدأ في تلقي المشاريع الهندسية.</p>
+            <Button className="mt-3 px-4 py-2 bg-blue-700 text-white rounded-lg">سجل الآن</Button>
+          </CardContent>
+        </Card>
+
+        <Card className="shadow-lg rounded-lg">
+          <CardContent className="p-4">
+            <Image src="/companies.jpg" alt="الشركات" width={300} height={200} className="rounded-lg mb-4" />
+            <h2 className="text-xl font-semibold">الشركات</h2>
+            <p className="text-gray-600">اعثر على مهندسين محترفين لتنفيذ مشاريعك الهندسية بسهولة.</p>
+            <Button className="mt-3 px-4 py-2 bg-blue-700 text-white rounded-lg">ابدأ الآن</Button>
+          </CardContent>
+        </Card>
+
+        <Card className="shadow-lg rounded-lg">
+          <CardContent className="p-4">
+            <Image src="/project-management.jpg" alt="إدارة المشاريع" width={300} height={200} className="rounded-lg mb-4" />
+            <h2 className="text-xl font-semibold">إدارة المشاريع</h2>
+            <p className="text-gray-600">تابع حالة مشاريعك وتواصل مع المهندسين بسهولة عبر نظام متكامل.</p>
+            <Button className="mt-3 px-4 py-2 bg-blue-700 text-white rounded-lg">استكشف المزيد</Button>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  );
+}
